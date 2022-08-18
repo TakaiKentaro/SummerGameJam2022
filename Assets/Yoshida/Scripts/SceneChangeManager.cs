@@ -46,9 +46,6 @@ public class SceneChangeManager : SingletonMonoBehavior<SceneChangeManager>
     /// <param name="sceneIndex">‘JˆÚ‚·‚éƒV[ƒ“”Ô†</param>
     public void LoadAssignedScene(int sceneIndex)
     {
-        sceneIndex = Mathf.Min(_sceneCount, sceneIndex - 1);
-        sceneIndex = Mathf.Max(_sceneCount, 0);
-
         SceneManager.LoadScene(sceneIndex);
     }
 
