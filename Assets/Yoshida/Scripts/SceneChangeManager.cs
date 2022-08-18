@@ -7,7 +7,7 @@ using UnityEditor;
 /// <summary>
 /// ゲーム全体のシーンを管理するコンポーネント
 /// </summary>
-public class SceneChangeManager : SingletonMonoBehavior<SceneChangeManager>
+public class SceneChangeManager : MonoBehaviour
 {
 
     public enum SceneType
@@ -46,9 +46,6 @@ public class SceneChangeManager : SingletonMonoBehavior<SceneChangeManager>
     /// <param name="sceneIndex">遷移するシーン番号</param>
     public void LoadAssignedScene(int sceneIndex)
     {
-        sceneIndex = Mathf.Min(_sceneCount, sceneIndex - 1);
-        sceneIndex = Mathf.Max(_sceneCount, 0);
-
         SceneManager.LoadScene(sceneIndex);
     }
 
