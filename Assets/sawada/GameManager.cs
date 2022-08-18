@@ -26,6 +26,10 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     //プレイヤースポーン

@@ -7,7 +7,7 @@ using UnityEditor;
 /// <summary>
 /// ゲーム全体のシーンを管理するコンポーネント
 /// </summary>
-public class SceneChangeManager : SingletonMonoBehavior<SceneChangeManager>
+public class SceneChangeManager : MonoBehaviour
 {
 
     public enum SceneType
