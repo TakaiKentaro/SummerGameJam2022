@@ -19,14 +19,23 @@ public class EnemyHitBullet : MonoBehaviour
     {
 
     }
-    private void OnCollisionEnter(Collision collision)
-    {
+    //private void OnCollisionEnter(Collision collision)
+    //{
 
-        if (collision.gameObject.tag == "Bullet")
+    //    if (collision.gameObject.tag == "Bullet")
+    //    {
+    //        StartCoroutine("CubeCount");
+    //    }
+    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Bullet")
         {
             StartCoroutine("CubeCount");
         }
     }
+
+
     IEnumerator CubeCount()
     {
         GetComponent<Renderer>().material.color = m_colors;
@@ -39,7 +48,7 @@ public class EnemyHitBullet : MonoBehaviour
         {
             Instantiate(_child, transform.position, Quaternion.identity);
         }
-        //GameManager.Instance.AdeScore();
+        GameManager.Instance.AdeScore();
         Destroy(gameObject);
     }
 }
