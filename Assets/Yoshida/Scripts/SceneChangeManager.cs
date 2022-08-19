@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEditor;
 
@@ -19,29 +18,9 @@ public class SceneChangeManager : MonoBehaviour
         Result = 3,
     }
 
-    private static bool IsLoaded { get; set; }
-
-    [Header("演出用")]
-    [Tooltip("FadeOut用Panel"), SerializeField] Image _fadeOutPanel;
-    [Tooltip("FadeOutのスピード"),SerializeField] float _fadeSpeed = 0.002f;
-    [Tooltip("FadeOut用Panelのアルファ値")] float _alpha = 0.0f;
-
     [Tooltip("現在のシーン")] Scene _currentScene;
 
     [Tooltip("シーンの数")] int _sceneCount = 0;
-
-    private void Awake()
-    {
-        if (IsLoaded)
-        {
-            Debug.Log("既に存在するため作成しない");
-            return;
-        }
-
-        IsLoaded = true;
-        DontDestroyOnLoad(this);
-        Debug.Log("SceneChangeManagerをDDOL");
-    }
 
     private void Start()
     {
@@ -91,15 +70,12 @@ public class SceneChangeManager : MonoBehaviour
     /// </summary>
     public void GoToIntroScene()
     {
-        StartCoroutine("FadeOutToIntro");
+        SceneChange((int)SceneType.Intro);
     }
 
-    /// <summary>
-    /// ゲームシーンへ遷移する関数
-    /// </summary>
     public void GotoGameScene()
     {
-        StartCoroutine("FadeOutToGame");
+        SceneChange((int)SceneType.Game);
     }
 
     /// <summary>
@@ -116,105 +92,5 @@ public class SceneChangeManager : MonoBehaviour
     public void GoToTitleScene()
     {
         SceneChange((int)SceneType.Title);
-    }
-
-    /// <summary>
-    /// デモシーンへ遷移するためのフェードアウト
-    /// </summary>
-    /// <returns></returns>
-    IEnumerator FadeOutToIntro()
-    {
-        Color c = _fadeOutPanel.color;
-        c.a = _alpha;
-        _fadeOutPanel.color = c;
-        while (true)
-        {
-            yield return null;
-            c.a += _fadeSpeed;
-            _fadeOutPanel.color = c;
-
-            if (c.a >= 1)
-            {
-                c.a = 1f;
-                _fadeOutPanel.color = c;
-                SceneChange((int)SceneType.Intro);
-                break;
-            }
-        }
-    }
-
-    /// <summary>
-    /// ゲームシーンに遷移する際のフェードアウト
-    /// </summary>
-    /// <returns></returns>
-    IEnumerator FadeOutToGame()
-    {
-        Color c = _fadeOutPanel.color;
-        c.a = _alpha;
-        _fadeOutPanel.color = c;
-        while (true)
-        {
-            yield return null;
-            c.a += _fadeSpeed;
-            _fadeOutPanel.color = c;
-
-            if (c.a >= 1)
-            {
-                c.a = 1f;
-                _fadeOutPanel.color = c;
-                SceneChange((int)SceneType.Game);
-                break;
-            }
-        }
-    }
-
-    /// <summary>
-    /// リザルトシーンに遷移する際のフェードアウト
-    /// </summary>
-    /// <returns></returns>
-    IEnumerator FadeOutToResult()
-    {
-        Color c = _fadeOutPanel.color;
-        c.a = _alpha;
-        _fadeOutPanel.color = c;
-        while (true)
-        {
-            yield return null;
-            c.a += _fadeSpeed;
-            _fadeOutPanel.color = c;
-
-            if (c.a >= 1)
-            {
-                c.a = 1f;
-                _fadeOutPanel.color = c;
-                SceneChange((int)SceneType.Result);
-                break;
-            }
-        }
-    }
-
-    /// <summary>
-    /// タイトルシーンに遷移する際のフェードアウト
-    /// </summary>
-    /// <returns></returns>
-    IEnumerator FadeOutToTitle()
-    {
-        Color c = _fadeOutPanel.color;
-        c.a = _alpha;
-        _fadeOutPanel.color = c;
-        while (true)
-        {
-            yield return null;
-            c.a += _fadeSpeed;
-            _fadeOutPanel.color = c;
-
-            if (c.a >= 1)
-            {
-                c.a = 1f;
-                _fadeOutPanel.color = c;
-                SceneChange((int)SceneType.Title);
-                break;
-            }
-        }
     }
 }
