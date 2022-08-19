@@ -1,9 +1,12 @@
 using UnityEngine;
+using System.Collections;
 
 public class SpawnEnemy : MonoBehaviour
 {
     [SerializeField]GameObject _spawnPrefab;
+    [SerializeField]GameObject _enemyHead;
     float RespawnTime;
+    bool check = false;
     void Start()
     {
         
@@ -22,8 +25,17 @@ public class SpawnEnemy : MonoBehaviour
         {
             
             _spawnPrefab.SetActive(true);
-            _spawnPrefab.GetComponent<Renderer>().material.color = Color.white;
+            StartCoroutine("Spawn");
         }
         
+    }
+
+    IEnumerator Spawn()
+    {
+        check = true;
+        yield return new WaitForSeconds(5f);
+        _spawnPrefab.SetActive(true);
+        _enemyHead.GetComponent<Renderer>().material.color = Color.white;
+        check = false;
     }
 }
