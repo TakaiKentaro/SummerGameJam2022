@@ -264,7 +264,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7757146, y: 1}
+    m_SensorSize: {x: 1.7834653, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -419,7 +419,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321291486}
-  m_LocalRotation: {x: 0.036317147, y: 0.8365929, z: -0.055875484, w: 0.54375666}
+  m_LocalRotation: {x: 0.036317144, y: 0.8365929, z: -0.055875488, w: 0.54375666}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -464,7 +464,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7757146, y: 1}
+    m_SensorSize: {x: 1.7834653, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1101,7 +1101,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7757146, y: 1}
+    m_SensorSize: {x: 1.7834653, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1661,7 +1661,7 @@ MonoBehaviour:
   _timeText: {fileID: 518348455}
   _player: {fileID: 258193840}
   _scoerText: {fileID: 1011993193}
-  _mousePointer: 1
+  _mousePointer: 0
   _score: 0
 --- !u!1 &914532288
 GameObject:
@@ -3155,7 +3155,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7757146, y: 1}
+    m_SensorSize: {x: 1.7834653, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
