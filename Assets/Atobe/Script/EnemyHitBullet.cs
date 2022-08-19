@@ -8,12 +8,10 @@ public class EnemyHitBullet : MonoBehaviour
     [SerializeField] GameObject _child;
     [SerializeField] GameObject _cube;
     [SerializeField] float _waitTime;
+    [SerializeField] GameObject _head;
     [SerializeField, Range(3, 100)]
+    
     float _forceAngle = 5;
-    void Start()
-    {
-
-    }
 
     void Update()
     {
@@ -40,7 +38,8 @@ public class EnemyHitBullet : MonoBehaviour
 
     IEnumerator CubeCount()
     {
-        GetComponent<Renderer>().material.color = m_colors;
+        _head.GetComponent<Renderer>().material.color = m_colors;
+
         yield return new WaitForSeconds(_waitTime);
         DestroyEnemy();
     }

@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
         _player.GetComponent<Player>()._sizeChanger += PlayerSizejudge;
         _mousePointer = false;
         
-
+        
 
     }
 
@@ -50,9 +50,14 @@ public class GameManager : MonoBehaviour
         _time -= Time.deltaTime;
         _timeText.text = $"{(int)_time}ïb";
         _scoerText.text = $"ÉXÉRÉA:{_score}";
+        Score._score = _score;
         Cursor.visible = false;
         if (_time <= 0)
         {
+            if (_score >= HighScore._highScore)
+            {
+                HighScore._highScore = _score;
+            }
             _gameEnd = true;
             _sceneManager.NextScene();
         }

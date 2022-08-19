@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1567160355976246081}
   - component: {fileID: 4900143411945292525}
   - component: {fileID: 8200899017794061495}
+  - component: {fileID: 6021582817698458123}
   m_Layer: 5
   m_Name: FadeInCanvas
   m_TagString: Untagged
@@ -59,7 +60,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 101
+  m_SortingOrder: 999
   m_TargetDisplay: 0
 --- !u!114 &4900143411945292525
 MonoBehaviour:
@@ -101,6 +102,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6021582817698458123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699956089301285622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d66aa323e6695439fc80a87f009cec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadeInPanel: {fileID: 3328622040692418514}
+  _fadeSpeed: 0.02
 --- !u!1 &1749193874878903360
 GameObject:
   m_ObjectHideFlags: 0
