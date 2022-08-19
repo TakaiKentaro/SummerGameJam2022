@@ -8,15 +8,16 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class StartButtonSound : MonoBehaviour
 {
-    [Tooltip("AudioSource")] AudioSource _audio;
+    [Tooltip("AudioSource"), SerializeField] AudioSource _audio;
+    [SerializeField] AudioClip _audioClip;
 
     private void Start()
     {
-        _audio = GetComponent<AudioSource>();
+        
     }
 
     public void PlayStartSound()
     {
-        _audio.Play();
+        _audio.PlayOneShot(_audioClip);
     }
 }
