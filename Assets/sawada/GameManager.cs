@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] bool _mousePointer = true;
 
     //スコア
-    public int _score;
+    public int _score = 0;
 
     private void Awake()
     {
@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
     {
         _time -= Time.deltaTime;
         _timeText.text = $"{(int)_time}秒";
+        _scoerText.text = $"スコア:{_score}";
         Cursor.visible = false;
         if (_time <= 0)
         {
