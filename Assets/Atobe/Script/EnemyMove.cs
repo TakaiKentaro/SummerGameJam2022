@@ -6,9 +6,10 @@ using UnityEngine.AI;
 public class EnemyMove : MonoBehaviour
 {
     [SerializeField] Transform[] _point;
-    [SerializeField] float _moveSpeed;
     [SerializeField] int _destPoint;
     NavMeshAgent _navMeshAgent;
+    [SerializeField, Range(1, 100)]
+    float _moveSpeed = 5;
 
     void MovePoint()
     {
