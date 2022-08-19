@@ -10,7 +10,6 @@ public class EnemyHitBullet : MonoBehaviour
     [SerializeField] float _waitTime;
     [SerializeField, Range(3, 100)]
     float _forceAngle = 5;
-
     void Start()
     {
 
@@ -40,6 +39,7 @@ public class EnemyHitBullet : MonoBehaviour
         {
             Instantiate(_child, transform.position, Quaternion.identity);
         }
+        //GameManager.Instance.AdeScore();
         Destroy(gameObject);
     }
 }
