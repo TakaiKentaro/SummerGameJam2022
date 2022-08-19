@@ -27,15 +27,15 @@ public class EnemyHitBullet : MonoBehaviour
             StartCoroutine("CubeCount");
         }
     }
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.tag == "Bullet")
-    //    {
-    //        StartCoroutine("CubeCount");
-    //    }
-    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Bullet")
+        {
+            StartCoroutine("CubeCount");
+        }
+    }
 
-    
+
 
 
     IEnumerator CubeCount()
