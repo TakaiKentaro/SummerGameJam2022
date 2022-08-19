@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: -8014020968672977320}
   - component: {fileID: -510671341944787660}
   m_Layer: 0
-  m_Name: EnemyChild
-  m_TagString: Untagged
+  m_Name: HealItem
+  m_TagString: Heal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
