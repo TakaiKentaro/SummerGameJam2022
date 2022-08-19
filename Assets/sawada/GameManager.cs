@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         //プレイヤーのサイズの通知をもらう
         _player.GetComponent<Player>()._sizeChanger += PlayerSizejudge;
         _mousePointer = false;
-        Cursor.visible = false;
+        
 
 
     }
@@ -49,11 +49,10 @@ public class GameManager : MonoBehaviour
     {
         _time -= Time.deltaTime;
         _timeText.text = $"{(int)_time}秒";
-
+        Cursor.visible = false;
         if (_time <= 0)
         {
             _gameEnd = true;
-            Cursor.visible = true;
             _sceneManager.NextScene();
         }
     }
