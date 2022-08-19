@@ -138,7 +138,7 @@ MonoBehaviour:
   m_colors: {r: 1, g: 0, b: 0, a: 0}
   _child: {fileID: 2619324666068734692, guid: 8ee7196dad725744b8fa0f0a70127d87, type: 3}
   _cube: {fileID: 2619324666068734692, guid: 8ee7196dad725744b8fa0f0a70127d87, type: 3}
-  _waitTime: 0.5
+  _waitTime: 5
   _forceAngle: 6
 --- !u!54 &7474142037356940553
 Rigidbody:
