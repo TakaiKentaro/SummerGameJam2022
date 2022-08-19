@@ -5,18 +5,27 @@ using UnityEngine;
 public class GunScript : MonoBehaviour
 {
     [Header("マガジンのサイズ")]
-    [SerializeField] int _magagineSize = 0;
+    [Range(0,10),SerializeField] float _magagineSize = 10;
+    public float MagazineSize => _magagineSize;
+
     [Header("銃の発射レート")]
     [SerializeField] float _fireRate = 0;
     [Header("フルオートにできるかどうか")]
     [SerializeField] bool _isFullAuto = false;
     [Header("弾のゲームオブジェクト")]
     [SerializeField] GameObject _bulletPrefab;
+    [Header("残弾数のImageのList")]
+    [SerializeField] GameObject[] FillList = new GameObject[10];
+    [Header("AudioSource")]
+    [SerializeField] AudioSource _audio;
+    [Header("銃を打つ音")]
+    [SerializeField] AudioClip _shotClip;
 
     [Tooltip("リロード中かどうか")]
     bool _isReloading = false;
     [Tooltip("現在の弾の数")]
     float _curMagazineAmo;
+    public float CurMagazineAmo => _curMagazineAmo;
     [Tooltip("弾の時間カウント用")]
     float _fireTime = 0;
 
@@ -25,6 +34,7 @@ public class GunScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _audio = GetComponent<AudioSource>();
         _curMagazineAmo = _magagineSize;
     }
 
@@ -66,16 +76,16 @@ public class GunScript : MonoBehaviour
 
     void DoFire()
     {
-        if (_isReloading) return;
 
-        if (_curMagazineAmo <= 0)
-        {
-            Reload();
-            return;
-        }
+        //銃を打つ音
+      //  _audio.PlayOneShot(_shotClip);
+
         //Debug.Log("Fire");
         _fireTime = Time.time;
 
+        //UIのライフを減らす
+        FillList[(int)_curMagazineAmo - 1].SetActive(false);
+        //弾を減らす
         _curMagazineAmo--;
 
         Vector3 _pos = transform.forward * 2.0f + transform.position;
@@ -100,9 +110,15 @@ public class GunScript : MonoBehaviour
         GameObject obj = Instantiate(_bulletPrefab, barrelPos, Quaternion.LookRotation(fireRot));
     }
 
-    void Reload()
+    /// <summary>
+    /// アモを追加するスクリプト
+    /// </summary>
+    public void AddAmo(int amo) 
     {
-
+        if (_curMagazineAmo >= _magagineSize) return;
+        _curMagazineAmo += amo;
+        //増えた玉野文ライフのUIをTrueにする
+        FillList[(int)_curMagazineAmo - 1].SetActive(true);
 
     }
 }
