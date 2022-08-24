@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
 
     //éûä‘
     public float _time = 5.0f;
-    bool _gameEnd = false;
     [SerializeField] Text _timeText;
     [SerializeField] GameObject _player;
     [SerializeField] Text _scoerText;
@@ -51,14 +50,12 @@ public class GameManager : MonoBehaviour
         _timeText.text = $"{(int)_time}ïb";
         _scoerText.text = $"ÉXÉRÉA:{_score}";
         Score._score = _score;
-        Cursor.visible = false;
         if (_time <= 0)
         {
-            if (_score >= HighScore._highScore)
+            if (_score > HighScore._highScore)
             {
                 HighScore._highScore = _score;
             }
-            _gameEnd = true;
             _sceneManager.NextScene();
         }
     }

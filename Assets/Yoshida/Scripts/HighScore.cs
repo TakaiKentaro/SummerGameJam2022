@@ -8,10 +8,17 @@ using UnityEngine.UI;
 /// </summary>
 public class HighScore : MonoBehaviour
 {
-    public static int _highScore = 5;
-
-    private void Start()
+    public static HighScore instance;
+    public static int _highScore;
+    private void Awake()
     {
-        DontDestroyOnLoad(this);
+        if (instance == null)
+        {
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Destroy(this);
+        }
     }
 }

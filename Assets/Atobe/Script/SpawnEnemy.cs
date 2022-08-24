@@ -23,8 +23,6 @@ public class SpawnEnemy : MonoBehaviour
         }*/
         if (_spawnPrefab.activeSelf == false)
         {
-            
-            _spawnPrefab.SetActive(true);
             StartCoroutine("Spawn");
         }
         

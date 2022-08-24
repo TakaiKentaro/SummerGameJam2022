@@ -7,10 +7,18 @@ using UnityEngine;
 /// </summary>
 public class Score : MonoBehaviour
 {
-    public static int _score = 0;
+    public static Score Instance;
+    public static int _score;
 
-    private void Start()
+    private void Awake()
     {
-        DontDestroyOnLoad(this);
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
     }
 }

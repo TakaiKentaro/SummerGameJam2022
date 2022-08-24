@@ -14,7 +14,7 @@ public class Result : MonoBehaviour
     [Tooltip("スコアのテキスト"), SerializeField] Text _scoreText;
 
     int _score;
-    int _highScore = 0;
+    int _highScore;
 
     private void Start()
     {
