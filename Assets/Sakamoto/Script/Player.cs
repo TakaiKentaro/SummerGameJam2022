@@ -28,11 +28,14 @@ public class Player : MonoBehaviour
     Rigidbody _rb;
     bool _endBool = false;
 
+    AudioSource _audio;
+
 
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -47,6 +50,11 @@ public class Player : MonoBehaviour
             CameraControl();
         }
 
+    }
+
+    private void FixedUpdate()
+    {
+        _rb.velocity = _dir.normalized * _speed + new Vector3(0, _rb.velocity.y, 0f);
     }
 
 
@@ -69,7 +77,7 @@ public class Player : MonoBehaviour
 
         }
 
-        _rb.velocity = _dir.normalized * _speed + new Vector3(0, _rb.velocity.y, 0f);
+        
 
         transform.LookAt(new Vector3(_lookAtObj.transform.position.x, transform.position.y, _lookAtObj.transform.position.z));
     }
@@ -120,6 +128,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Heal"))
         {
             _gunScript.AddAmo(_addAmo);
+            _audio.Play();
         }
     }
 }

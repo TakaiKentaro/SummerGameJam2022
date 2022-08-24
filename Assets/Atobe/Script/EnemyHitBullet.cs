@@ -10,9 +10,13 @@ public class EnemyHitBullet : MonoBehaviour
     [SerializeField] float _waitTime;
     [SerializeField] GameObject _head;
     [SerializeField, Range(3, 100)]
+    AudioSource _audio;
     
     float _forceAngle = 5;
-
+    private void Start()
+    {
+        _audio = GetComponent<AudioSource>();
+    }
     void Update()
     {
 
@@ -38,6 +42,7 @@ public class EnemyHitBullet : MonoBehaviour
 
     IEnumerator CubeCount()
     {
+        _audio.Play();
         _head.GetComponent<Renderer>().material.color = m_colors;
 
         yield return new WaitForSeconds(_waitTime);

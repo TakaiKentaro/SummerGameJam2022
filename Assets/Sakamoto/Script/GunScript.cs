@@ -5,7 +5,7 @@ using UnityEngine;
 public class GunScript : MonoBehaviour
 {
     [Header("マガジンのサイズ")]
-    [Range(0,10),SerializeField] float _magagineSize = 10;
+    [Range(0, 10), SerializeField] float _magagineSize = 10;
     public float MagazineSize => _magagineSize;
 
     [Header("銃の発射レート")]
@@ -48,7 +48,7 @@ public class GunScript : MonoBehaviour
             _fireCoroutine = RepeatFire();
             StartCoroutine(_fireCoroutine);
         }
-        else if(Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0))
         {
             Debug.Log("銃を止めた魚");
             StopCoroutine(_fireCoroutine);
@@ -78,7 +78,7 @@ public class GunScript : MonoBehaviour
     {
 
         //銃を打つ音
-      //  _audio.PlayOneShot(_shotClip);
+        _audio.PlayOneShot(_shotClip);
 
         //Debug.Log("Fire");
         _fireTime = Time.time;
@@ -113,7 +113,7 @@ public class GunScript : MonoBehaviour
     /// <summary>
     /// アモを追加するスクリプト
     /// </summary>
-    public void AddAmo(int amo) 
+    public void AddAmo(int amo)
     {
         if (_curMagazineAmo >= _magagineSize) return;
         _curMagazineAmo += amo;
